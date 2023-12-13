@@ -24,8 +24,8 @@
         <?php foreach ($assignments as $assignment) : ?>
         <div class="list__row">
             <div class="list__item">
-                <p class="bold"><?= "{$assignement['courseName']}" ?></p>
-                <p><?= $assignement['Description']; ?></p>
+                <p class="bold"><?= "{$assignment['courseName']}" ?></p>
+                <p><?= $assignment['Description']; ?></p>
         </div>
         <div class="list__removeItem">
             <form action="." method="post">
