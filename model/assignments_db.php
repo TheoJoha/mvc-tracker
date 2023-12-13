@@ -10,7 +10,9 @@
             courses C ON A.courseID = C.courseID  ORDER BY C.courseID';
         }
         $statement = $db->prepare($query);
-        $statement->bindValue(':course_id', $course_id);
+        if ($course_id) {
+            $statement->bindValue(':course_id', $course_id);
+        }
         $statement->execute();
         $assignments = $statement->fetchAll();
         $statement->closeCursor();
@@ -21,7 +23,7 @@
         global $db;
         $query = 'DELETE FROM assignments WHERE ID = :assign_id';
         $statement = $db->prepare($query);
-        $statement->bindValue(':course_id', $assignment_id);
+        $statement->bindValue(':assign_id', $assignment_id);
         $statement->execute();
         $statement->closeCursor();
     }
@@ -31,7 +33,7 @@
         $query = 'INSERT INTO assignments (Description, courseID)
         VALUES (:descr, :courseID)';
         $statement = $db->prepare($query);
-        $statement->bindValue(':descr', $course_id);
+        $statement->bindValue(':descr', $description);
         $statement->bindValue(':courseID', $course_id);
         $statement->execute();
         $statement->closeCursor();

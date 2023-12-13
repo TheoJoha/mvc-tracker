@@ -36,7 +36,7 @@
 
     function add_course($course_name) {
         global $db;
-        $query = 'INSERT INTO courses (courseName) VVALUES (:courseName)';
+        $query = 'INSERT INTO courses (courseName) VALUES (:courseName)';
         $statement = $db->prepare($query);
         $statement->bindValue('courseName', $course_name);
         $statement->execute();
