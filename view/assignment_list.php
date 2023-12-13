@@ -24,17 +24,16 @@
         <?php foreach ($assignments as $assignment) : ?>
         <div class="list__row">
             <div class="list__item">
-                <p class="bold"><?= $assignement['courseName'] ?></p>
-                <p><?= $assignement['Description'] ?></p>
+                <p class="bold"><?= "{$assignement['courseName']}" ?></p>
+                <p><?= $assignement['Description']; ?></p>
         </div>
         <div class="list__removeItem">
             <form action="." method="post">
                 <input type="hidden" name="action" value="delete_assignment">
                 <input type="hidden" name="assignment_id" value="<?=
-                $assignment['ID'] ?>">
+                $assignment['ID']; ?>">
                 <button class="remove-button">Remove</button>
             </form>
-        </div>
         </div>
         </div>
         <?php endforeach; ?>
@@ -45,8 +44,8 @@
         <?php } else { ?>
         <p>No assignments exist yet </p>
         <?php } ?>
-        <?php } ?>
         <br>
+        <?php } ?>
 </section>
 
 <section id="add" class="add">
@@ -54,8 +53,8 @@
         <form action="." method="post" id="add__form" class="add__form">
             <input type="hidden" name="action" value="add_assignment">
             <div clas="add__inputs">
-            <label>Course:</label>
-            <select name="coruse_id" required>
+            <label>course:</label>
+            <select name="course_id" required>
                 <option value="">Please select</option>
                 <?php foreach ($courses as $course) : ?>
                 <option value="<?= $course['courseID']; ?>">
@@ -72,5 +71,6 @@
             </div>
         </form>
 </section>
+<br>
 <p><a href=".?action=list_courses">View/Edit Courses</a></p>
 <?php include('view/footer.php'); ?>

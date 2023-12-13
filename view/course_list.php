@@ -15,11 +15,11 @@
             <div class="list__removeItem">
                 <form action="." method="post">
                     <input type="hidden" name="action" value="delete_course">
-                    <input type="hidden" name="course_id" value="<?= $course['courseID'] ?>">
+                    <input type="hidden" name="course_id" value="<?= $course['courseID']; ?>">
                     <button class="remove-button">Remove</button>
-    </form>
-    </div>
-    </div>
+                </form>
+            </div>
+        </div>
     <?php endforeach; ?>
     </section>
     <?php } else { ?>
@@ -30,7 +30,7 @@
         <h2>Add Course</h2>
         <form action="." method="post" id="add__form" class="add__form">
             <input type="hidden" name="action" value="add_course">
-            <div class="add__input">
+            <div class="add__inputs">
                 <label>Name:</label>
                 <input type="text" name="course_name" maxlength="50"
                 placeholder="Name" autofocus required>
